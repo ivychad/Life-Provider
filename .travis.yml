@@ -1,3 +1,5 @@
+env:
+  GitRepo: git@github.com:RobinMarchart/Life-Provider.git
 language: java
 dist: xenial
 jdk: openjdk11
@@ -15,5 +17,11 @@ deploy:
   - "$HOME/api/build/libs/api.jar"
   - "$HOME/imp/build/libs/imp.jar"
   skip_cleanup: true
+  on:
+    tags: true
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: ./deploy-site.sh
   on:
     tags: true
