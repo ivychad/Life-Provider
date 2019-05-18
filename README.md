@@ -1,7 +1,4 @@
 
-<script>alert()</script>
-
-
 # Life-Provider
 ## Build Status
 

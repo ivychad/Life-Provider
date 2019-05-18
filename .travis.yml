@@ -23,5 +23,3 @@ deploy:
   skip_cleanup: true
   provider: script
   script: ./deploy-site.sh
-  on:
-    tags: true
