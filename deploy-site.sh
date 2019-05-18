@@ -1,6 +1,5 @@
 #! /bin/bash
-rm -rq site
-mkdir site
+rm -r site
 git clone $GitRepo site
 cd site
 git checkout gh-pages
