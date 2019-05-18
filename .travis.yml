@@ -11,15 +11,14 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 deploy:
-  provider: releases
-  api_key: "$DeployKey"
-  file:
-  - "$HOME/api/build/libs/api.jar"
-  - "$HOME/imp/build/libs/imp.jar"
-  skip_cleanup: true
-  on:
-    tags: true
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: ./deploy-site.sh
+  - provider: releases
+    api_key: "$DeployKey"
+    file:
+    - "$HOME/api/build/libs/api.jar"
+    - "$HOME/imp/build/libs/imp.jar"
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: script
+    skip_cleanup: true
+    script: ./deploy-site.sh
