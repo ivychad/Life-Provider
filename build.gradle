@@ -11,7 +11,7 @@
     jcenter()
     mavenCentral()
 	reporting {
-		baseDir "$rootDir/site/$name"
+		baseDir System.getenv("CI")?"$rootDir/site/$name/$TRAVIS_BRANCH":"$rootDir/site/$name"
 	}
  }
  }
@@ -20,6 +20,6 @@
 	 apply plugin: 'project-report'
 }
  tasks.withType(Javadoc){
-	 destinationDir = reporting.file("$rootDir/site/$name/doc")
+	 destinationDir = reporting.file(System.getenv("CI")?"$rootDir/site/$name/$TRAVIS_BRANCH/doc":"$rootDir/site/Provider/doc")
  }
  

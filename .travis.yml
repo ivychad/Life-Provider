@@ -1,5 +1,5 @@
 env:
-  GitRepo: git@github.com:RobinMarchart/Life-Provider.git
+  GitRepo: https://$token@github.com/RobinMarchart/Life-Provider.git
 language: java
 dist: xenial
 jdk: openjdk11
