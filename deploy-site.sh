@@ -1,4 +1,5 @@
 #! /bin/bash
+cd $TRAVIS_BUILD_DIR
 rm -rf site
 git clone $GitRepo site >/dev/null 2>&1
 cd site
