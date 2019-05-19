@@ -3,6 +3,8 @@ env:
 language: java
 dist: xenial
 jdk: openjdk11
+before_install:
+  - echo $TRAVIS_BRANCH
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
