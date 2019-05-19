@@ -16,5 +16,6 @@ if grep -Fxq $TRAVIS_BRANCH site/branches.txt
     fi
 cd site
 echo 
+ls
 git commit --amend -a -m "site deploy"
 git push -f $GitRepo >/dev/null 2>&1
