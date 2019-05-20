@@ -20,6 +20,6 @@
 	 apply plugin: 'project-report'
 }
  tasks.withType(Javadoc){
-	 destinationDir = reporting.file(System.getenv("CI")?"$rootDir/site/$name/"+System.getenv("TRAVIS_BRANCH")+"/doc":"$rootDir/site/Provider/doc")
+	 destinationDir = reporting.file(System.getenv("CI")?"$rootDir/site/Provider/"+System.getenv("TRAVIS_BRANCH")+"/doc":"$rootDir/site/Provider/doc")
  }
  
