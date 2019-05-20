@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $.get("branches.txt",function(data, status){
+                    if(status!=200){
+                        alert("Error:"+status)
+                        //handle error
+                    }else{
+                        first=true;
+                        data.split("[\n\r]|\n\r").forEach(x=>{
+                            $(".dropdown-content").append("<button type=\"button\" class=\"drop-contentbtn\" onclick=\"setCurrent("+x+")\">"+x+"</button>")
+                            if(first){
+                                setCurrent(x);
+                            }
+                        })
+                    }
+                });
+            });
+            function setCurrent(name){
+                $("iframe").remove()
+                $("main").append("<iframe src=\"Provider/"+name+"/buildDashboard/index.html\"></iframe>")
+                $(".dropbtn").text(name);
+            }
+        </script>
+    </head>
+    <body>
+        <noscript>
+            Please enable Javascript!
+        </noscript>
+        <header>
+            <div class="dropdown">
+                <button class="dropbtn"></button>
+                <div class="dropdown-content">
+
+                </div>
+            </div>
+        </header>
+        <main>
+
+        </main>
+    </body>
+</html>
