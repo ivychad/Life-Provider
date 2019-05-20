@@ -11,10 +11,12 @@
         $(document).ready(function () {
             $.get("branches.txt", {}, function (data, status) {
                 first = true;
-                data.split("[\n\r]|\n\r").forEach(x => {
-                    $(".dropdown-content").append("<button type=\"button\" class=\"drop-contentbtn\" onclick=\"setCurrent(\"" + x + "\")\">" + x + "</button>")
+                data.split("\n").forEach(x => {
+                    $(".dropdown-content").append("<button type=\"button\" class=\"drop-contentbtn\">" + x + "</button>")
+                    $(".drop-contentbtn:contains('"+x+"')").click(x,setCurrent);
                     if (first) {
                         setCurrent(x);
+                        first=false;
                     }
                 })
 
@@ -23,8 +25,11 @@
             });
         });
         function setCurrent(name) {
-            $("iframe").remove()
-            $(".iframe-content").append("<iframe src=\"Provider/" + name + "/buildDashboard/index.html\"></iframe>")
+            if("string"!=typeof name){
+                name=name.data;
+            }
+            $("iframe").remove();
+            $(".iframe-content").append("<iframe src=\"Provider/" + name + "/buildDashboard/index.html\"></iframe>");
             $(".dropbtn").text(name);
         }
     </script>
