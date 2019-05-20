@@ -1,19 +1,28 @@
+env:
+  GitRepo: https://$token@github.com/RobinMarchart/Life-Provider.git
 language: java
 dist: xenial
 jdk: openjdk11
+before_install:
+  - ./list_env_vars.sh
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f  $TRAVIS_BUILD_DIR/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $TRAVIS_BUILD_DIR/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+    - $TRAVIS_BUILD_DIR/.gradle/caches/
+    - $TRAVIS_BUILD_DIR/.gradle/wrapper/
 deploy:
-  provider: releases
-  api_key: "$DeployKey"
-  file:
-  - "$HOME/api/build/libs/api.jar"
-  - "$HOME/imp/build/libs/imp.jar"
-  skip_cleanup: true
-  on:
-    tags: true
+  - provider: script
+    skip_cleanup: true
+    script: ./deploy-site.sh
+    on:
+      all_branches: true
+  - provider: releases
+    api_key: "$DeployKey"
+    file:
+    - "$TRAVIS_BUILD_DIR/api/build/libs/api.jar"
+    - "$TRAVIS_BUILD_DIR/imp/build/libs/imp.jar"
+    skip_cleanup: true
+    on:
+      tags: true
