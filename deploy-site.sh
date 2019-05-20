@@ -1,13 +1,21 @@
 #! /bin/bash
-rm -rq site
-mkdir site
-git clone $GitRepo site
+cd $TRAVIS_BUILD_DIR
+rm -rf site
+git clone $GitRepo site >/dev/null 2>&1
 cd site
 git checkout gh-pages
 cd ..
 ./gradlew projectReport check javadoc
-if grep -Fxq site/branches.txt $TRAVIS_COMMIT
-echo $TRAVIS_COMMIT >>site/branches.txt
-fi
+echo 
+if grep -Fxq $TRAVIS_BRANCH site/branches.txt
+    then
+        echo branch already exists
+    else
+        echo $TRAVIS_BRANCH >> site/branches.txt
+        echo branch created
+    fi
 cd site
-git commit --amend -a
+echo 
+git add -A
+git commit --amend -a -m "site deploy"
+git push -f $GitRepo >/dev/null 2>&1
