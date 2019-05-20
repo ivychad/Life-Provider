@@ -9,3 +9,4 @@ site
 .classpath
 .project
 .settings
+.gitattributes
