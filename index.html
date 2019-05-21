@@ -8,14 +8,25 @@
     <meta charset="UTF-8">
     <script src="jquery-3.4.1.min.js"></script>
     <script>
-        version=""
+        version="";
+        type="";
+        types=null;
         $(document).ready(function () {
+            $.getJSON("content.json",function(data){
+                types=data;
+                type=Object.keys(data)[0];
+                $.each(data,function(key){
+                    $("#type_div").append("<button type=\"button\" class=\"drop-contentbtn\" onclick=\"setType(\\\""+encodeURIComponent(key)+"\\\")\">" + key + "</button>");
+                });
+                $("#type").text(type);
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                alert(errorThrown + ":" + textStatus);
+            });
             $.get("branches.txt", {}, function (data, status) {
                 first = true;
                 data.split("\n").forEach(x => {
                     if(x!=""){
-                        $(".dropdown-content").append("<button type=\"button\" class=\"drop-contentbtn\">" + x + "</button>")
-                    $(".drop-contentbtn:contains('"+x+"')").click(x,setVersion);
+                        $("#version_div").append("<button type=\"button\" onclick=\"setVersion(\\\""+encodeURIComponent(x)+"\\\")\" class=\"drop-contentbtn\">" + x + "</button>")
                     if (first) {
                         setVersion(x);
                         first=false;
@@ -29,26 +40,24 @@
             });
         });
         function setVersion(name) {
-            if("string"!=typeof name){
-                name=name.data;
-            }
             if(name!=""){
                 version=name;
+            $("#version").text(version);
                 update();
             }
+        }
+        function setType(name) {
+            type=name
+            $("#type").text(name);
+            update();
         }
         function update() {
             
             $("iframe").remove();
             $(".iframe-content").append("<iframe id=\"iframe\" src=\"Provider/" + version + "/buildDashboard/index.html\" onLoad=\"iframe_content(this.contentWindow.location);\"></iframe>");
-            $(".dropbtn").text(version);
         }
-        folder=location.href.match(".*\\\/")[0];
         function iframe_content(location){
             $("#open").attr("href",location)
-            $("iframe").contents().find("head").append("<script src=\""+folder+"jquery-3.4.1.min.js"+"\" type=\"text/javascript\"><\/script>");
-            $("iframe").contents().find("head").append("<script src=\""+folder+"injected.js"+"\" type=\"text/javascript\"><\/script>");
-            //document.getElementById("iframe").contentWindow.eval("$(document).ready(function(){$(\"a[href]\").filter(function(index,element){return !element.attr(\"href\").includes(location.host);}).attr({target:\"_blank\",rel:\"noopener noreferrer\"});});)");
         }
         
     </script>
@@ -148,11 +157,15 @@
     <header>
         <div class="header">
             <div class="dropdown">
-                <button class="dropbtn"></button>
-                <div class="dropdown-content">
+                <button class="dropbtn" id="version"></button>
+                <div class="dropdown-content" id="version_div">
                 </div>
             </div>
             <a target="_blank" rel="noopener noreferrer" id="open">Open Page</a>
+            <div class="dropdown">
+                    <button class="dropbtn",id=type></button>
+                    <div class="dropdown-content" id="type_div">
+                    </div>
         </div>
 
     </header>

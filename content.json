@@ -1,0 +1,6 @@
+{
+    "Reports":{
+        "prefix":"Provider/",
+        "postfix":"/buildDashboard/"
+    }
+}
