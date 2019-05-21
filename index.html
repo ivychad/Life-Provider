@@ -8,30 +8,49 @@
     <meta charset="UTF-8">
     <script src="jquery-3.4.1.min.js"></script>
     <script>
+        version=""
         $(document).ready(function () {
             $.get("branches.txt", {}, function (data, status) {
                 first = true;
                 data.split("\n").forEach(x => {
-                    $(".dropdown-content").append("<button type=\"button\" class=\"drop-contentbtn\">" + x + "</button>")
-                    $(".drop-contentbtn:contains('"+x+"')").click(x,setCurrent);
+                    if(x!=""){
+                        $(".dropdown-content").append("<button type=\"button\" class=\"drop-contentbtn\">" + x + "</button>")
+                    $(".drop-contentbtn:contains('"+x+"')").click(x,setVersion);
                     if (first) {
-                        setCurrent(x);
+                        setVersion(x);
                         first=false;
                     }
+                    }
+                    
                 })
 
             }, "text").fail(function (jqXHR, textStatus, errorThrown) {
                 alert(errorThrown + ":" + textStatus);
             });
         });
-        function setCurrent(name) {
+        function setVersion(name) {
             if("string"!=typeof name){
                 name=name.data;
             }
-            $("iframe").remove();
-            $(".iframe-content").append("<iframe src=\"Provider/" + name + "/buildDashboard/index.html\"></iframe>");
-            $(".dropbtn").text(name);
+            if(name!=""){
+                version=name;
+                update();
+            }
         }
+        function update() {
+            
+            $("iframe").remove();
+            $(".iframe-content").append("<iframe id=\"iframe\" src=\"Provider/" + version + "/buildDashboard/index.html\" onLoad=\"iframe_content(this.contentWindow.location);\"></iframe>");
+            $(".dropbtn").text(version);
+        }
+        folder=location.href.match(".*\\\/")[0];
+        function iframe_content(location){
+            $("#open").attr("href",location)
+            $("iframe").contents().find("head").append("<script src=\""+folder+"jquery-3.4.1.min.js"+"\" type=\"text/javascript\"><\/script>");
+            $("iframe").contents().find("head").append("<script src=\""+folder+"injected.js"+"\" type=\"text/javascript\"><\/script>");
+            //document.getElementById("iframe").contentWindow.eval("$(document).ready(function(){$(\"a[href]\").filter(function(index,element){return !element.attr(\"href\").includes(location.host);}).attr({target:\"_blank\",rel:\"noopener noreferrer\"});});)");
+        }
+        
     </script>
     <style>
         /*header bar*/
@@ -39,6 +58,23 @@
             overflow: hidden;
             background-color: darkslategrey;
             font-family: 'Times New Roman', Times, serif;
+        }
+
+        .header a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .header a:hover {
+            background-color: slategray;
+        }
+
+        .dropdown .dropbtn:hover {
+            background-color: slategray;
         }
 
         /*dropdown container*/
@@ -54,7 +90,7 @@
             outline: none;
             color: white;
             padding: 14px 16px;
-            background-color: slategray;
+            background-color: darkslategray;
             font-family: inherit;
             margin: 0;
         }
@@ -62,7 +98,7 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: slategray;
+            background-color: darkslategray;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
         }
@@ -116,6 +152,7 @@
                 <div class="dropdown-content">
                 </div>
             </div>
+            <a target="_blank" rel="noopener noreferrer" id="open">Open Page</a>
         </div>
 
     </header>
