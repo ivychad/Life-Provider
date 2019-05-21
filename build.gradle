@@ -4,3 +4,22 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds/
  */
+
+ allprojects{
+	 apply plugin: 'build-dashboard'
+	 repositories {
+    jcenter()
+    mavenCentral()
+	reporting {
+		baseDir System.getenv("CI")?"$rootDir/site/$name/"+System.getenv("TRAVIS_BRANCH"):"$rootDir/site/$name"
+	}
+ }
+ }
+ subprojects{
+	 apply plugin: 'java-library'
+	 apply plugin: 'project-report'
+}
+ tasks.withType(Javadoc){
+	 destinationDir = reporting.file(System.getenv("CI")?"$rootDir/site/Provider/"+System.getenv("TRAVIS_BRANCH")+"/doc":"$rootDir/site/Provider/doc")
+ }
+ 
