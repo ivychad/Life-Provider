@@ -69,7 +69,7 @@ spotbugs - The SpotBugs libraries to be used for this project.
           \--- com.google.code.findbugs:jsr305:3.0.2
 
 spotbugsPlugins - The SpotBugs plugins to be used for this project.
-\--- com.h3xstream.findsecbugs:findsecbugs-plugin:1.7.1
+\--- com.h3xstream.findsecbugs:findsecbugs-plugin:1.9.0
 
 testAnnotationProcessor - Annotation processors and their dependencies for source set 'test'.
 No dependencies
