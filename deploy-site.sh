@@ -4,6 +4,9 @@ rm -rf site
 git clone $GitRepo site >/dev/null 2>&1
 cd site
 git checkout gh-pages
+rm -rf site/Provider/$TRAVIS_BRANCH
+rm -rf site/api/$TRAVIS_BRANCH
+rm -rf site/imp/$TRAVIS_BRANCH
 cd ..
 ./gradlew projectReport check javadoc
 echo 
