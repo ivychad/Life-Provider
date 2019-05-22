@@ -19,7 +19,7 @@ repositories {
 dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
-    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.7.1'
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.9.0'
 }
 
 spotbugs{
@@ -37,6 +37,6 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
     }
   }
   tasks.withType(Javadoc){
-	 destinationDir = reporting.file(System.getenv("CI")?"$rootDir/site/api/"+System.getenv("TRAVIS_BRANCH")+"/doc":"$rootDir/site/imp/doc")
+	 destinationDir = reporting.file(System.getenv("CI")?"$rootDir/site/imp/"+System.getenv("TRAVIS_BRANCH")+"/doc":"$rootDir/site/imp/doc")
  }
  
