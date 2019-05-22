@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>life</groupId>
+  <artifactId>api</artifactId>
+  <versioning>
+    <release>jesus</release>
+    <versions>
+      <version>SNAPSHOT</version>
+      <version>dev%build-env</version>
+      <version>development</version>
+      <version>master</version>
+      <version>jesus</version>
+    </versions>
+    <lastUpdated>20190526134156</lastUpdated>
+  </versioning>
+</metadata>

@@ -4,14 +4,14 @@ Project :imp
 ------------------------------------------------------------
 
 allprojects: [project ':imp']
-ant: org.gradle.api.internal.project.DefaultAntBuilder@274a6a8c
-antBuilderFactory: org.gradle.api.internal.project.DefaultAntBuilderFactory@34482d80
+ant: org.gradle.api.internal.project.DefaultAntBuilder@7a36704
+antBuilderFactory: org.gradle.api.internal.project.DefaultAntBuilderFactory@83dd652
 archivesBaseName: imp
-artifacts: org.gradle.api.internal.artifacts.dsl.DefaultArtifactHandler_Decorated@483c85c6
+artifacts: org.gradle.api.internal.artifacts.dsl.DefaultArtifactHandler_Decorated@5293fda3
 asDynamicObject: DynamicObject for project ':imp'
 assemble: task ':imp:assemble'
 autoTargetJvmDisabled: false
-baseClassLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@4d43f357
+baseClassLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@744f02e9
 build: task ':imp:build'
 buildDashboard: task ':imp:buildDashboard'
 buildDependents: task ':imp:buildDependents'
@@ -20,27 +20,27 @@ buildEnvironment: task ':imp:buildEnvironment'
 buildFile: /home/travis/build/RobinMarchart/Life-Provider/imp/build.gradle
 buildNeeded: task ':imp:buildNeeded'
 buildPath: :
-buildScriptSource: org.gradle.groovy.scripts.TextResourceScriptSource@12b169df
-buildscript: org.gradle.api.internal.initialization.DefaultScriptHandler@665b6f0f
+buildScriptSource: org.gradle.groovy.scripts.TextResourceScriptSource@78f1e0c
+buildscript: org.gradle.api.internal.initialization.DefaultScriptHandler@1b08d2be
 check: task ':imp:check'
 childProjects: {}
 class: class org.gradle.api.internal.project.DefaultProject_Decorated
-classLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@138a6a69
+classLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@7de108cb
 classes: task ':imp:classes'
 clean: task ':imp:clean'
 compileJava: task ':imp:compileJava'
 compileTestJava: task ':imp:compileTestJava'
 components: SoftwareComponentInternal set
-configurationActions: org.gradle.configuration.project.DefaultProjectConfigurationActionContainer@3f34df6b
-configurationTargetIdentifier: org.gradle.configuration.ConfigurationTargetIdentifier$1@26d2b6c3
+configurationActions: org.gradle.configuration.project.DefaultProjectConfigurationActionContainer@30d28c31
+configurationTargetIdentifier: org.gradle.configuration.ConfigurationTargetIdentifier$1@4f529b59
 configurations: configuration container
-convention: org.gradle.api.internal.plugins.DefaultConvention@1b4c8601
-defaultArtifacts: org.gradle.api.internal.plugins.DefaultArtifactPublicationSet_Decorated@5b556e23
+convention: org.gradle.api.internal.plugins.DefaultConvention@12122d2f
+defaultArtifacts: org.gradle.api.internal.plugins.DefaultArtifactPublicationSet_Decorated@6740c8f6
 defaultTasks: []
-deferredProjectConfiguration: org.gradle.api.internal.project.DeferredProjectConfiguration@42032da5
-dependencies: org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler_Decorated@71d4ff88
+deferredProjectConfiguration: org.gradle.api.internal.project.DeferredProjectConfiguration@43d7732b
+dependencies: org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler_Decorated@1884a05b
 dependencyInsight: task ':imp:dependencyInsight'
-dependencyLocking: org.gradle.internal.locking.DefaultDependencyLockingHandler_Decorated@e57033d
+dependencyLocking: org.gradle.internal.locking.DefaultDependencyLockingHandler_Decorated@1bfc9d31
 dependencyReport: task ':imp:dependencyReport'
 dependentComponents: task ':imp:dependentComponents'
 depth: 1
@@ -50,75 +50,85 @@ distsDir: /home/travis/build/RobinMarchart/Life-Provider/imp/build/distributions
 distsDirName: distributions
 docsDir: /home/travis/build/RobinMarchart/Life-Provider/imp/build/docs
 docsDirName: docs
-ext: org.gradle.internal.extensibility.DefaultExtraPropertiesExtension@7e8340a2
-extensions: org.gradle.api.internal.plugins.DefaultConvention@1b4c8601
-fileOperations: org.gradle.api.internal.file.DefaultFileOperations@253624d2
-fileResolver: org.gradle.api.internal.file.BaseDirFileResolver@73c8a743
+ext: org.gradle.internal.extensibility.DefaultExtraPropertiesExtension@7a9af1c0
+extensions: org.gradle.api.internal.plugins.DefaultConvention@12122d2f
+fileOperations: org.gradle.api.internal.file.DefaultFileOperations@22c8b93
+fileResolver: org.gradle.api.internal.file.BaseDirFileResolver@3f1775f5
+generateMetadataFileForMyLibraryPublication: task ':imp:generateMetadataFileForMyLibraryPublication'
+generatePomFileForMyLibraryPublication: task ':imp:generatePomFileForMyLibraryPublication'
 gradle: build 'Provider'
-group: Provider
+group: life
 help: task ':imp:help'
 htmlDependencyReport: task ':imp:htmlDependencyReport'
 identityPath: :imp
-inheritedScope: org.gradle.internal.extensibility.ExtensibleDynamicObject$InheritedDynamicObject@45b00cec
+inheritedScope: org.gradle.internal.extensibility.ExtensibleDynamicObject$InheritedDynamicObject@407d6233
 jar: task ':imp:jar'
-java: org.gradle.api.plugins.internal.DefaultJavaPluginExtension_Decorated@2152d2a8
+java: org.gradle.api.plugins.internal.DefaultJavaPluginExtension_Decorated@6d449f0d
 javadoc: task ':imp:javadoc'
-layout: org.gradle.api.internal.file.DefaultProjectLayout@355672e4
+javadocJar: task ':imp:javadocJar'
+layout: org.gradle.api.internal.file.DefaultProjectLayout@b52e125
 libsDir: /home/travis/build/RobinMarchart/Life-Provider/imp/build/libs
 libsDirName: libs
-listenerBuildOperationDecorator: org.gradle.configuration.internal.DefaultListenerBuildOperationDecorator@287c3646
-logger: org.gradle.internal.logging.slf4j.OutputEventListenerBackedLogger@24f58efa
-logging: org.gradle.internal.logging.services.DefaultLoggingManager@39239b2
+listenerBuildOperationDecorator: org.gradle.configuration.internal.DefaultListenerBuildOperationDecorator@4e96beaa
+logger: org.gradle.internal.logging.slf4j.OutputEventListenerBackedLogger@4a8dfacf
+logging: org.gradle.internal.logging.services.DefaultLoggingManager@fee9567
 model: task ':imp:model'
-modelRegistry: org.gradle.model.internal.registry.DefaultModelRegistry@46808240
-modelSchemaStore: org.gradle.model.internal.manage.schema.extract.DefaultModelSchemaStore@d289141
-module: org.gradle.api.internal.artifacts.ProjectBackedModule@23fca4fc
+modelRegistry: org.gradle.model.internal.registry.DefaultModelRegistry@24a91253
+modelSchemaStore: org.gradle.model.internal.manage.schema.extract.DefaultModelSchemaStore@45b36688
+module: org.gradle.api.internal.artifacts.ProjectBackedModule@57efed3d
 mutationState: project :imp
 name: imp
-normalization: org.gradle.normalization.internal.DefaultInputNormalizationHandler_Decorated@71f0cfaa
-objects: org.gradle.api.internal.model.DefaultObjectFactory@77b75222
+normalization: org.gradle.normalization.internal.DefaultInputNormalizationHandler_Decorated@6ddc4d3c
+objects: org.gradle.api.internal.model.DefaultObjectFactory@719bd26b
 parent: root project 'Provider'
 parentIdentifier: root project 'Provider'
 path: :imp
-pluginManager: org.gradle.api.internal.plugins.DefaultPluginManager_Decorated@657abacf
-plugins: [org.gradle.api.plugins.ReportingBasePlugin@272aa6a2, org.gradle.api.reporting.plugins.BuildDashboardPlugin@5050a072, org.gradle.language.base.plugins.LifecycleBasePlugin@1d3bce18, org.gradle.api.plugins.BasePlugin@2d27a3b2, org.gradle.api.plugins.JavaBasePlugin@5fca1f02, org.gradle.api.plugins.JavaPlugin@a4c77b9, org.gradle.api.plugins.JavaLibraryPlugin@49c423e6, org.gradle.api.plugins.ProjectReportsPlugin@596e235f, org.gradle.buildinit.plugins.BuildInitPlugin@5653057f, org.gradle.buildinit.plugins.WrapperPlugin@3f4b51b3, org.gradle.api.plugins.HelpTasksPlugin@57f89eaf, com.github.spotbugs.SpotBugsPlugin@7f243bd4]
+pluginManager: org.gradle.api.internal.plugins.DefaultPluginManager_Decorated@a253492
+plugins: [org.gradle.api.plugins.ReportingBasePlugin@66f2940f, org.gradle.api.reporting.plugins.BuildDashboardPlugin@69c88040, org.gradle.api.publish.plugins.PublishingPlugin@466f1f98, org.gradle.api.publish.maven.plugins.MavenPublishPlugin@654d3263, org.gradle.language.base.plugins.LifecycleBasePlugin@17ed9029, org.gradle.api.plugins.BasePlugin@3a8ad814, org.gradle.api.plugins.JavaBasePlugin@4278302, org.gradle.api.plugins.JavaPlugin@87567cf, org.gradle.api.plugins.JavaLibraryPlugin@7362d230, org.gradle.api.plugins.ProjectReportsPlugin@1fc4ee30, org.gradle.buildinit.plugins.BuildInitPlugin@27435159, org.gradle.buildinit.plugins.WrapperPlugin@4ab0161, org.gradle.api.plugins.HelpTasksPlugin@613db096, com.github.spotbugs.SpotBugsPlugin@593077ef]
 prepareKotlinBuildScriptModel: task ':imp:prepareKotlinBuildScriptModel'
-processOperations: org.gradle.process.internal.DefaultExecActionFactory$DecoratingExecActionFactory@3112a1b2
+processOperations: org.gradle.process.internal.DefaultExecActionFactory$DecoratingExecActionFactory@64c42c09
 processResources: task ':imp:processResources'
 processTestResources: task ':imp:processTestResources'
 project: project ':imp'
-projectConfigurator: org.gradle.api.internal.project.BuildOperationCrossProjectConfigurator@7f7ff01
+projectConfigurator: org.gradle.api.internal.project.BuildOperationCrossProjectConfigurator@7b4dde
 projectDir: /home/travis/build/RobinMarchart/Life-Provider/imp
 projectEvaluationBroadcaster: ProjectEvaluationListener broadcast
-projectEvaluator: org.gradle.configuration.project.LifecycleProjectEvaluator@1842d471
+projectEvaluator: org.gradle.configuration.project.LifecycleProjectEvaluator@7ed363d7
 projectPath: :imp
-projectRegistry: org.gradle.api.internal.project.DefaultProjectRegistry@36167c5a
+projectRegistry: org.gradle.api.internal.project.DefaultProjectRegistry@65ca2a62
 projectReport: task ':imp:projectReport'
 projectReportDir: /home/travis/build/RobinMarchart/Life-Provider/site/imp/master/project
 projectReportDirName: project
 projects: [project ':imp']
 properties: {...}
 propertyReport: task ':imp:propertyReport'
-providers: org.gradle.api.internal.provider.DefaultProviderFactory@84bc92f
+providers: org.gradle.api.internal.provider.DefaultProviderFactory@4a84c306
 publicType: org.gradle.api.plugins.BasePluginConvention
-reporting: org.gradle.api.reporting.ReportingExtension_Decorated@54b1b8ea
+publish: task ':imp:publish'
+publishAllPublicationsToMyRepoRepository: task ':imp:publishAllPublicationsToMyRepoRepository'
+publishMyLibraryPublicationToMavenLocal: task ':imp:publishMyLibraryPublicationToMavenLocal'
+publishMyLibraryPublicationToMyRepoRepository: task ':imp:publishMyLibraryPublicationToMyRepoRepository'
+publishToMavenLocal: task ':imp:publishToMavenLocal'
+publishing: org.gradle.api.publish.internal.DefaultPublishingExtension_Decorated@38b889f9
+reporting: org.gradle.api.reporting.ReportingExtension_Decorated@340d2778
 reportsDir: /home/travis/build/RobinMarchart/Life-Provider/site/imp/master
 repositories: repository container
-resourceLoader: org.gradle.internal.resource.transfer.DefaultUriTextResourceLoader@3e939be2
-resources: org.gradle.api.internal.resources.DefaultResourceHandler@472f4935
+resourceLoader: org.gradle.internal.resource.transfer.DefaultUriTextResourceLoader@41cecbd4
+resources: org.gradle.api.internal.resources.DefaultResourceHandler@6e58b119
 rootDir: /home/travis/build/RobinMarchart/Life-Provider
 rootProject: root project 'Provider'
 script: false
-scriptHandlerFactory: org.gradle.api.internal.initialization.DefaultScriptHandlerFactory@6db67034
-scriptPluginFactory: org.gradle.configuration.ScriptPluginFactorySelector@3c9d27f2
-serviceRegistryFactory: org.gradle.internal.service.scopes.ProjectScopeServices$4@190b209f
+scriptHandlerFactory: org.gradle.api.internal.initialization.DefaultScriptHandlerFactory@662f3940
+scriptPluginFactory: org.gradle.configuration.ScriptPluginFactorySelector@81381d3
+serviceRegistryFactory: org.gradle.internal.service.scopes.ProjectScopeServices$4@2bb97cbf
 services: ProjectScopeServices
 sourceCompatibility: 11
 sourceSets: SourceSet container
-spotbugs: com.github.spotbugs.SpotBugsExtension_Decorated@3d301d3d
+sourcesJar: task ':imp:sourcesJar'
+spotbugs: com.github.spotbugs.SpotBugsExtension_Decorated@5732cf70
 spotbugsMain: task ':imp:spotbugsMain'
 spotbugsTest: task ':imp:spotbugsTest'
-standardOutputCapture: org.gradle.internal.logging.services.DefaultLoggingManager@39239b2
+standardOutputCapture: org.gradle.internal.logging.services.DefaultLoggingManager@fee9567
 state: project state 'EXECUTED'
 status: integration
 subprojects: []
@@ -131,4 +141,4 @@ testReportDir: /home/travis/build/RobinMarchart/Life-Provider/site/imp/master/te
 testReportDirName: tests
 testResultsDir: /home/travis/build/RobinMarchart/Life-Provider/imp/build/test-results
 testResultsDirName: test-results
-version: unspecified
+version: master

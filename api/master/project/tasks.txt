@@ -31,6 +31,16 @@ projects - Displays the sub-projects of project ':api'.
 properties - Displays the properties of project ':api'.
 tasks - Displays the tasks runnable from project ':api'.
 
+Publishing tasks
+----------------
+generateMetadataFileForMyLibraryPublication - Generates the Gradle metadata file for publication 'myLibrary'.
+generatePomFileForMyLibraryPublication - Generates the Maven POM file for publication 'myLibrary'.
+publish - Publishes all publications produced by this project.
+publishAllPublicationsToMyRepoRepository - Publishes all Maven publications produced by this project to the myRepo repository.
+publishMyLibraryPublicationToMavenLocal - Publishes Maven publication 'myLibrary' to the local Maven repository.
+publishMyLibraryPublicationToMyRepoRepository - Publishes Maven publication 'myLibrary' to Maven repository 'myRepo'.
+publishToMavenLocal - Publishes all Maven publications produced by this project to the local Maven cache.
+
 Reporting tasks
 ---------------
 buildDashboard - Generates a dashboard of all the reports produced by this build.

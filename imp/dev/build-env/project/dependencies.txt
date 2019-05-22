@@ -7,7 +7,7 @@ annotationProcessor - Annotation processors and their dependencies for source se
 No dependencies
 
 api - API dependencies for source set 'main'. (n)
-No dependencies
+\--- project api (n)
 
 apiElements - API elements for main. (n)
 No dependencies
@@ -19,13 +19,13 @@ compile - Dependencies for source set 'main' (deprecated, use 'implementation' i
 No dependencies
 
 compileClasspath - Compile classpath for source set 'main'.
-No dependencies
+\--- project :api
 
 compileOnly - Compile only dependencies for source set 'main'.
 No dependencies
 
 default - Configuration for default artifacts.
-No dependencies
+\--- project :api
 
 implementation - Implementation only dependencies for source set 'main'. (n)
 No dependencies
@@ -34,7 +34,7 @@ runtime - Runtime dependencies for source set 'main' (deprecated, use 'runtimeOn
 No dependencies
 
 runtimeClasspath - Runtime classpath of source set 'main'.
-No dependencies
+\--- project :api
 
 runtimeElements - Elements of runtime for main. (n)
 No dependencies
@@ -69,7 +69,7 @@ spotbugs - The SpotBugs libraries to be used for this project.
           \--- com.google.code.findbugs:jsr305:3.0.2
 
 spotbugsPlugins - The SpotBugs plugins to be used for this project.
-\--- com.h3xstream.findsecbugs:findsecbugs-plugin:1.7.1
+\--- com.h3xstream.findsecbugs:findsecbugs-plugin:1.9.0
 
 testAnnotationProcessor - Annotation processors and their dependencies for source set 'test'.
 No dependencies
@@ -78,6 +78,7 @@ testCompile - Dependencies for source set 'test' (deprecated, use 'testImplement
 No dependencies
 
 testCompileClasspath - Compile classpath for source set 'test'.
++--- project :api
 \--- junit:junit:4.12
      \--- org.hamcrest:hamcrest-core:1.3
 
@@ -91,6 +92,7 @@ testRuntime - Runtime dependencies for source set 'test' (deprecated, use 'testR
 No dependencies
 
 testRuntimeClasspath - Runtime classpath of source set 'test'.
++--- project :api
 \--- junit:junit:4.12
      \--- org.hamcrest:hamcrest-core:1.3
 
