@@ -16,7 +16,9 @@
                 types=data;
                 type=Object.keys(data)[0];
                 $.each(data,function(key){
-                    $("#type_div").append("<button type=\"button\" class=\"drop-contentbtn\" onclick=\"setType(\\\""+encodeURIComponent(key)+"\\\")\">" + key + "</button>");
+                    key=$.trim(key);
+                    str="<button type=\"button\" class=\"drop-contentbtn\" onclick=\"setType(&quot;"+key+"&quot;)\">" + key + "</button>";
+                    $("#type_div").append(str);
                 });
                 $("#type").text(type);
             }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -26,7 +28,8 @@
                 first = true;
                 data.split("\n").forEach(x => {
                     if(x!=""){
-                        $("#version_div").append("<button type=\"button\" onclick=\"setVersion(\\\""+encodeURIComponent(x)+"\\\")\" class=\"drop-contentbtn\">" + x + "</button>")
+                        x=$.trim(x);
+                        $("#version_div").append("<button type=\"button\" onclick=\"setVersion(&quot;"+x+"&quot;)\" class=\"drop-contentbtn\">" + x + "</button>")
                     if (first) {
                         setVersion(x);
                         first=false;
@@ -54,7 +57,7 @@
         function update() {
             
             $("iframe").remove();
-            $(".iframe-content").append("<iframe id=\"iframe\" src=\"Provider/" + version + "/buildDashboard/index.html\" onLoad=\"iframe_content(this.contentWindow.location);\"></iframe>");
+            $(".iframe-content").append("<iframe id=\"iframe\" src=\""+types[type].prefix + version + types[type].postfix+"\" onLoad=\"iframe_content(this.contentWindow.location);\"></iframe>");
         }
         function iframe_content(location){
             $("#open").attr("href",location)
@@ -134,7 +137,7 @@
         /*iframe container*/
         .iframe-content {
             position: absolute;
-            top: 100px;
+            top: 55px;
             left: 0;
             right: 0;
             bottom: 0;
@@ -163,7 +166,7 @@
             </div>
             <a target="_blank" rel="noopener noreferrer" id="open">Open Page</a>
             <div class="dropdown">
-                    <button class="dropbtn",id=type></button>
+                    <button class="dropbtn" id=type></button>
                     <div class="dropdown-content" id="type_div">
                     </div>
         </div>

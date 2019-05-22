@@ -1,6 +1,14 @@
 {
     "Reports":{
         "prefix":"Provider/",
-        "postfix":"/buildDashboard/"
+        "postfix":"/buildDashboard/index.html"
+    },
+    "Api-Javadoc":{
+        "prefix":"api/",
+        "postfix":"/doc/index.html"
+    },
+    "Implementation-Javadoc":{
+        "prefix":"imp/",
+        "postfix":"/doc/index.html"
     }
 }
