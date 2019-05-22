@@ -19,7 +19,7 @@ deploy:
     on:
       all_branches: true
   - provider: releases
-    api_key: "$DeployKey"
+    api_key: "$token"
     file:
     - "$TRAVIS_BUILD_DIR/api/build/libs/api.jar"
     - "$TRAVIS_BUILD_DIR/imp/build/libs/imp.jar"
