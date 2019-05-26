@@ -1,5 +1,6 @@
 env:
   GitRepo: https://$token@github.com/RobinMarchart/Life-Provider.git
+  groupid: life
 language: java
 dist: xenial
 jdk: openjdk11
@@ -21,8 +22,12 @@ deploy:
   - provider: releases
     api_key: "$token"
     file:
-    - "$TRAVIS_BUILD_DIR/api/build/libs/api.jar"
-    - "$TRAVIS_BUILD_DIR/imp/build/libs/imp.jar"
+    - "$TRAVIS_BUILD_DIR/site/repo/$groupid/imp/$TRAVIS_BRANCH/imp-${TRAVIS_BRANCH}.jar"
+    - "$TRAVIS_BUILD_DIR/site/repo/$groupid/imp/$TRAVIS_BRANCH/imp-${TRAVIS_BRANCH}-sources.jar"
+    - "$TRAVIS_BUILD_DIR/site/repo/$groupid/imp/$TRAVIS_BRANCH/imp-${TRAVIS_BRANCH}-javadoc.jar"
+    - "$TRAVIS_BUILD_DIR/site/repo/$groupid/api/$TRAVIS_BRANCH/api-${TRAVIS_BRANCH}.jar"
+    - "$TRAVIS_BUILD_DIR/site/repo/$groupid/api/$TRAVIS_BRANCH/api-${TRAVIS_BRANCH}-sources.jar"
+    - "$TRAVIS_BUILD_DIR/site/repo/$groupid/api/$TRAVIS_BRANCH/api-${TRAVIS_BRANCH}-javadoc.jar"
     skip_cleanup: true
     on:
       tags: true

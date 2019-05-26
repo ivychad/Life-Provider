@@ -6,18 +6,46 @@
  */
 
  allprojects{
-	 apply plugin: 'build-dashboard'
-	 repositories {
-    jcenter()
-    mavenCentral()
+	apply plugin: 'build-dashboard'
+	apply plugin: 'maven-publish'
+	version=System.getenv("CI")?System.getenv("TRAVIS_BRANCH"):"SNAPSHOT"
+	group=System.getenv("CI")?System.getenv("groupid"):"life"
+	repositories {
+    	jcenter()
+    	mavenCentral()
+       
+	}
 	reporting {
 		baseDir System.getenv("CI")?"$rootDir/site/$name/"+System.getenv("TRAVIS_BRANCH"):"$rootDir/site/$name"
 	}
- }
- }
+}
  subprojects{
-	 apply plugin: 'java-library'
-	 apply plugin: 'project-report'
+	apply plugin: 'java-library'
+	apply plugin: 'project-report'
+	task sourcesJar(type: Jar) {
+    	archiveClassifier = 'sources'
+    	from sourceSets.main.allJava
+	}
+	task javadocJar(type: Jar) {
+    	archiveClassifier = 'javadoc'
+    	from javadoc.destinationDir
+	}
+	publishing {
+    	publications {
+        	myLibrary(MavenPublication) {
+            	from components.java
+				artifact sourcesJar
+            	artifact javadocJar
+			}
+        }
+		repositories{
+			maven {
+            	name = 'myRepo'
+            	url = "file://$rootDir/site/repo"
+        	}
+		}
+		 
+    }
 }
  tasks.withType(Javadoc){
 	 destinationDir = reporting.file(System.getenv("CI")?"$rootDir/site/Provider/"+System.getenv("TRAVIS_BRANCH")+"/doc":"$rootDir/site/Provider/doc")
