@@ -8,7 +8,7 @@
  allprojects{
 	apply plugin: 'build-dashboard'
 	apply plugin: 'maven-publish'
-	version=System.getenv("CI")?System.getenv("TRAVIS_BRANCH"):"SNAPSHOT"
+	version=System.getenv("CI")?System.getenv("TRAVIS_BRANCH").replaceAll('/','%'):"SNAPSHOT"
 	group=System.getenv("CI")?System.getenv("groupid"):"life"
 	repositories {
     	jcenter()
