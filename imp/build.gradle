@@ -18,6 +18,7 @@ repositories {
 
 dependencies {
     // Use JUnit test framework
+    api project(":api")
     testImplementation 'junit:junit:4.12'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.9.0'
 }
