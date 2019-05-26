@@ -8,7 +8,7 @@ cd ..
 rm -rf site/Provider/$TRAVIS_BRANCH
 rm -rf site/api/$TRAVIS_BRANCH
 rm -rf site/imp/$TRAVIS_BRANCH
-./gradlew projectReport check javadoc
+./gradlew projectReport check javadoc publish
 echo 
 if grep -Fxq $TRAVIS_BRANCH site/branches.txt
     then
